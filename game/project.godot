@@ -10,8 +10,8 @@ config_version=4
 
 [application]
 
-config/name="Platformer"
-run/main_scene="res://src/Levels/Level1.tscn"
+config/name="prototype-1-platformer"
+run/main_scene="res://src/Levels/Level1/Level1.tscn"
 config/icon="res://icon.png"
 
 [autoload]
