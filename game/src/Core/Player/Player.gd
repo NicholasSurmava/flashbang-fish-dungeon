@@ -9,11 +9,20 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if Global.enable_movement:
 		if Input.is_action_pressed("ui_right"):
-			$AnimatedSprite.flip_h = false
+			
 			velocity.x = 100
 		if Input.is_action_pressed("ui_left"):
-			$AnimatedSprite.flip_h = true
+			
 			velocity.x = -100
+	
+	if velocity.x > 0:
+		$AnimatedSprite.play("walking")
+		$AnimatedSprite.flip_h = false
+	elif velocity.x < 0:
+		$AnimatedSprite.play("walking")
+		$AnimatedSprite.flip_h = true
+	else:
+		$AnimatedSprite.play("idle")
 		
 	velocity.y += 300 * delta
 	
@@ -22,4 +31,4 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
-	velocity.x = lerp(velocity.x, 0, 0.5)
+	velocity.x = lerp(velocity.x, 0, 1)
