@@ -19,4 +19,7 @@ func _ready() -> void:
 func _on_Switch1_body_entered(body: Node) -> void:
 	if body.name == "Player":
 		$AnimatedSprite.play("activate")
-		Global.switch1 = true
+		if self.name == "Switch1":
+			Global.switch1 = true
+		else:
+			Global.switch2 = true
